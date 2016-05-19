@@ -1,1 +1,1 @@
-DEFINE_LEAF_NODE(SelectRandomTarget, "Sets the AI agent's target position to a random point.", void OnEdit();)
+DEFINE_LEAF_NODE(SelectWeightedRandomTarget, "Sets the AI agent's target position to a weighted random point.", float weight1; float weight2; void OnEdit();)

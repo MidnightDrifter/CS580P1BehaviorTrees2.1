@@ -1,6 +1,6 @@
 #include "DXUT.h"
 #include "../BehaviorTree.h"
-LOGIC_UPDATE_FUNC(SelectorRandom)
+LOGIC_UPDATE_FUNC(SelectorWeightedRandom)
 {
   if (currentStatus == NS_OnEnter)
   {
@@ -24,12 +24,14 @@ LOGIC_UPDATE_FUNC(SelectorRandom)
   }
 }
 END_LOGIC_UPDATE_FUNC
-ON_EDIT_FUNC(SelectorRandom)
+
+ON_EDIT_FUNC(SelectorWeightedRandom)
 {
 
 }
 END_ON_EDIT_FUNC
-NODE_MSG_RECEIVED(SelectorRandom)
+
+NODE_MSG_RECEIVED(SelectorWeightedRandom)
 {
 
 }

@@ -1,10 +1,15 @@
 Selectors
+	SelectorWeightedRandom "Selector Weighted Random"
 	SelectorRandom "Selector Random"
 	Sequencer "Sequencer"
 Decorators
 	DecoratorInverter "Decorator Inverter"
 	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
+	DecoratorRunXTimes "Run a node X times"
+	DecoratorRunUntilFail "Continues running a node until the node fails"
+	DecoratorRunXTimesOrUntilSucceed "Decorator Run X Times Or Until Success"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
 	SelectRandomTarget "Sets the AI agent's target position to a random point."
 	SelectFurthestTarget "Sets the target POS to the furthest AI agent."
+	SelectWeightedRandomTarget "Sets the AI agent's target position to a weighted random point."

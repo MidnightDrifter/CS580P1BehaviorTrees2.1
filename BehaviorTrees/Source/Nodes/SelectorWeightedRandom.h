@@ -1,1 +1,1 @@
-DEFINE_SELECTOR_NODE(SelectorRandom, "Selector Random", void OnEdit();)
+DEFINE_SELECTOR_NODE(SelectorWeightedRandom, "Selector Weighted Random", void OnEdit();)

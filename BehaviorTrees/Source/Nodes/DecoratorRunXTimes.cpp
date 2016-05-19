@@ -1,11 +1,14 @@
 #include "DXUT.h"
-#include "DecoratorRunXTimes.h"
+#include "../BehaviorTree.h"
+
+
+
 LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 {
 	if (currentStatus == NS_OnEnter)
 	{
 		currentStatus = NS_Running;
-		currX = 0;
+		(*currX) = 0;
 		m_currentChildIndex = 0;
 	}
 	else
@@ -19,9 +22,9 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 		else if (childStatus == NS_Completed)
 		{
 			//currentStatus = NS_Failed;
-			if (currX < x)
+			if ((*currX) < x)
 			{
-				(currX)++;
+				(*currX)++;
 				//[tell child to run again here?]
 			}
 
@@ -36,18 +39,31 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 			//currentStatus = NS_Completed;
 
 			//currentStatus = NS_Failed;
-			if (currX < x)
+			if ((*currX) < x)
 			{
-				(currX)++;
+				(*currX)++;
 				//[tell child to run again here?]
 				currentStatus = NS_Running;
 			}
 
 			else
 			{
-				childStatus = NS_Failed;
+				currentStatus = NS_Failed;
 			}
 
 		}
 	}
 }
+END_LOGIC_UPDATE_FUNC
+
+ON_EDIT_FUNC(DecoratorRunXTimes)
+{
+
+}
+END_ON_EDIT_FUNC
+
+NODE_MSG_RECEIVED(DecoratorRunXTimes)
+{
+
+}
+END_NODE_MSG_RECEIVED
