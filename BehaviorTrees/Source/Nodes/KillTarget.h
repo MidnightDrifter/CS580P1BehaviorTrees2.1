@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(KillTarget, "Kill a civilian target, increment variable and check for victory", void OnEdit();)

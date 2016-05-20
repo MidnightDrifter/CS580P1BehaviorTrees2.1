@@ -22,5 +22,10 @@
 #include "Nodes/SelectRandomTarget.h"
 #include "Nodes/SelectFurthestTarget.h"
 #include "Nodes/SelectWeightedRandomTarget.h"  //SH added leaf node
+#include "Nodes/BroadcastKillerStatus.h"  //SH added leaf node
+#include "Nodes/BroadcastCivilianStatus.h"  //SH added leaf node
+#include "Nodes/BroadcastCopStatus.h" //SH added leaf node
+#include "Nodes/KillTarget.h" //SH added leaf node
+#include "Nodes/Victory.h"  //SH added leaf node
 
 #endif

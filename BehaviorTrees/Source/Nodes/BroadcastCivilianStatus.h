@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(BroadcastCivilianStatus, "Broadcast status as civilian / victim", void OnEdit();)

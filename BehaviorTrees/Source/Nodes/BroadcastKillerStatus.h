@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(BroadcastKillerStatus, "Broadcast an agent's status as the killer for 3s", void OnEdit();)

@@ -13,3 +13,8 @@ Leaves
 	SelectRandomTarget "Sets the AI agent's target position to a random point."
 	SelectFurthestTarget "Sets the target POS to the furthest AI agent."
 	SelectWeightedRandomTarget "Sets the AI agent's target position to a weighted random point."
+	BroadcastKillerStatus "Broadcast an agent's status as the killer for 3s"
+	BroadcastCivilianStatus "Broadcast status as civilian / victim"
+	BroadcastCopStatus "Broadcast status as cop"
+	KillTarget "Kill a civilian target, increment variable and check for victory"
+	Victory "Killer wins, turn all other actors into civilians and kill rapidly"

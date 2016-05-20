@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(Victory, "Killer wins, turn all other actors into civilians and kill rapidly", void OnEdit();)
