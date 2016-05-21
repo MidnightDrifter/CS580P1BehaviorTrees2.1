@@ -13,27 +13,27 @@
 //    (abs(pos.y - target.y) < nearDist) &&
 //    (abs(pos.z - target.z) < nearDist);
 //}
-static bool jog = false;
+//static bool jog = false;
 LEAF_UPDATE_FUNC(PursueSuspect)
 {
   GameObject *me = g_database.Find(self);
-  if (me)
+  GameObject *s = g_database.Find(suspectID);
+  float randomScale = 0.5 * (rand() % 13);
+  if (me && s)
   {
-    if (currentStatus == NS_OnEnter)
-    {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
+   
+      
+       me->GetMovement().SetJogSpeed();
+      me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
       currentStatus = NS_Running;
-    }
-    else
-    {
+    
+   
       /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
       {
         currentStatus = NS_Completed;
         me->GetMovement().SetIdleSpeed();
       }*/
-    }
+    
   }
   else
   {

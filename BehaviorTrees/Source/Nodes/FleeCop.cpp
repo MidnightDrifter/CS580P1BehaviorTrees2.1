@@ -17,27 +17,36 @@ static bool jog = false;
 LEAF_UPDATE_FUNC(FleeCop)
 {
   GameObject *me = g_database.Find(self);
-  if (me)
+  GameObject *c = g_database.Find(copID);
+  float randomScale = 0.5 * (rand() % 13);
+  if (me && c)
   {
-    if (currentStatus == NS_OnEnter)
-    {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
-      currentStatus = NS_Running;
-    }
-    else
-    {
-      /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetIdleSpeed();
-      }*/
-    }
-  }
-  else
-  {
-    currentStatus = NS_Failed;
+
+	  me->GetMovement().SetJogSpeed();
+	      me->GetMovement().SetTarget(me->GetTargetPOS() - randomScale * (c->GetBody().GetDir()));
+	      currentStatus = NS_Running;
+
+
+
+  //  if (currentStatus == NS_OnEnter)
+  //  {
+  //    if (jog)me->GetMovement().SetJogSpeed();
+  //    else me->GetMovement().SetWalkSpeed();
+  //    me->GetMovement().SetTarget(me->GetTargetPOS());
+  //    currentStatus = NS_Running;
+  //  }
+  //  else
+  //  {
+  //    /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+  //    {
+  //      currentStatus = NS_Completed;
+  //      me->GetMovement().SetIdleSpeed();
+  //    }*/
+  //  }
+  //}
+  //else
+  //{
+  //  currentStatus = NS_Failed;
   }
 }
 END_LEAF_UPDATE_FUNC
