@@ -1,1 +1,0 @@
-DEFINE_LEAF_NODE(BroadcastCopStatus, "Broadcast status as cop", void OnEdit();)

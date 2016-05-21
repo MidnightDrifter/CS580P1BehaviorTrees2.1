@@ -4,7 +4,7 @@
 #define BEHAVIOR_TREE_NODES_H
 
 //Selectors
-#include "Nodes/SelectorWeightedRandom.h"  //SH added selecter
+#include "Nodes/SelectorRandomUntilFail.h"  //SH added selector
 #include "Nodes/SelectorRandom.h"
 #include "Nodes/SelectorSequencer.h"
 
@@ -21,11 +21,26 @@
 #include "Nodes/PathToTarget.h"
 #include "Nodes/SelectRandomTarget.h"
 #include "Nodes/SelectFurthestTarget.h"
-#include "Nodes/SelectWeightedRandomTarget.h"  //SH added leaf node
+#include "Nodes/SelectNearestTarget.h"  //SH added leaf node
+#include "Nodes/FleeCop.h"  //SH added leaf node
+#include "Nodes/PursueSuspect.h"  //SH added leaf node
+
+
+#include "Nodes/KillVictim.h" //SH added leaf node
+#include "Nodes/Victory.h"  //SH added leaf node
+#include "Nodes/Defeat.h"  //SH added leaf node
+#include "Nodes/FalseArrest.h"  //SH added leaf node
+#include "Nodes/SelectRandomVictim.h"  //SH added leaf node
+#include "Nodes/Idle.h" //SH added leaf node
+
+
+//IGNORE THESE
+/*
 #include "Nodes/BroadcastKillerStatus.h"  //SH added leaf node
 #include "Nodes/BroadcastCivilianStatus.h"  //SH added leaf node
 #include "Nodes/BroadcastCopStatus.h" //SH added leaf node
-#include "Nodes/KillTarget.h" //SH added leaf node
-#include "Nodes/Victory.h"  //SH added leaf node
+*/
+
+
 
 #endif

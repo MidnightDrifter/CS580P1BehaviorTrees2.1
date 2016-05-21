@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(FleeCop, "Killer flees cop for duration of chase", void OnEdit();)

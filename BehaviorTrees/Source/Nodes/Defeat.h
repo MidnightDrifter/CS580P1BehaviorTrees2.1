@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(Defeat, "Killer loses, turn some drastic color", void OnEdit();)

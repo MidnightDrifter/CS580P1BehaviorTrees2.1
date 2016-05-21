@@ -1,1 +1,0 @@
-DEFINE_SELECTOR_NODE(SelectorWeightedRandom, "Selector Weighted Random", void OnEdit();)

@@ -159,25 +159,34 @@
     <ClCompile Include="Source\Nodes\DecoratorRunXTimesOrUntilSucceed.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\SelectWeightedRandomTarget.cpp">
+    <ClCompile Include="Source\Nodes\Victory.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\SelectorWeightedRandom.cpp">
+    <ClCompile Include="Source\Nodes\KillVictim.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\FalseArrest.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectRandomVictim.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\FleeCop.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\PursueSuspect.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\Defeat.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectNearestTarget.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectorRandomUntilFail.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\BroadcastKillerStatus.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\BroadcastCivilianStatus.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\BroadcastCopStatus.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\KillTarget.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\Victory.cpp">
+    <ClCompile Include="Source\Nodes\Idle.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
   </ItemGroup>
@@ -351,25 +360,34 @@
     <ClInclude Include="Source\Nodes\DecoratorRunXTimesOrUntilSucceed.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\SelectWeightedRandomTarget.h">
+    <ClInclude Include="Source\Nodes\Victory.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\SelectorWeightedRandom.h">
+    <ClInclude Include="Source\Nodes\KillVictim.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\FalseArrest.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectRandomVictim.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\FleeCop.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\PursueSuspect.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Defeat.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectNearestTarget.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectorRandomUntilFail.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\BroadcastKillerStatus.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\BroadcastCivilianStatus.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\BroadcastCopStatus.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\KillTarget.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\Victory.h">
+    <ClInclude Include="Source\Nodes\Idle.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
   </ItemGroup>
@@ -442,5 +460,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+    <Text Include="KillerCivilianCopIdea.txt" />
   </ItemGroup>
 </Project>
