@@ -9,7 +9,7 @@
 // helper function, copied from example.cpp with slight modifications.
 objectID GetNearestAgent(objectID);
 
-LEAF_UPDATE_FUNC(SelectFurthestTarget)
+LEAF_UPDATE_FUNC(SelectNearestTarget)
 {
   if (currentStatus == NS_OnEnter)
   {
@@ -78,13 +78,13 @@ objectID GetNearestAgent(objectID self)
   return(nearestGameObject->GetID());
 }
 
-ON_EDIT_FUNC(SelectFurthestTarget)
+ON_EDIT_FUNC(SelectNearestTarget)
 {
   
 }
 END_ON_EDIT_FUNC
 
-NODE_MSG_RECEIVED(SelectFurthestTarget)
+NODE_MSG_RECEIVED(SelectNearestTarget)
 {
 
 }

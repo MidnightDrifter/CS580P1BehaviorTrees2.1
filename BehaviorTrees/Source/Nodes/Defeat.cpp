@@ -14,39 +14,21 @@
 //    (abs(pos.z - target.z) < nearDist);
 //}
 static bool jog = false;
-LEAF_UPDATE_FUNC(Victory)
+LEAF_UPDATE_FUNC(Defeat)
 {
   GameObject *me = g_database.Find(self);
   if (me)
   {
-    if (currentStatus == NS_OnEnter)
-    {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
-      currentStatus = NS_Running;
-    }
-    else
-    {
-      /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetIdleSpeed();
-      }*/
-    }
-  }
-  else
-  {
-    currentStatus = NS_Failed;
+	  me->GetTiny().SetDiffuse(0.9f, 0.9f, 0.9f);  //Color my Tiny black
   }
 }
 END_LEAF_UPDATE_FUNC
-ON_EDIT_FUNC(Victory)
+ON_EDIT_FUNC(Defeat)
 {
   ImGui::Checkbox("Jog", &jog);
 }
 END_ON_EDIT_FUNC
-NODE_MSG_RECEIVED(Victory)
+NODE_MSG_RECEIVED(Defeat)
 {
 	GameObject *me = g_database.Find(self);
 	if (name == MSG_Arrived)
