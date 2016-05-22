@@ -161,6 +161,7 @@
     <ClCompile Include="Source\msgroute.cpp" />
     <ClCompile Include="Source\MultiAnimation.cpp" />
     <ClCompile Include="Source\MultiAnimationLib.cpp" />
+    <ClCompile Include="Source\Nodes\CopIdle.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorInverter.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilFail.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilSucceed.cpp" />
@@ -169,7 +170,7 @@
     <ClCompile Include="Source\Nodes\Defeat.cpp" />
     <ClCompile Include="Source\Nodes\FalseArrest.cpp" />
     <ClCompile Include="Source\Nodes\FleeCop.cpp" />
-    <ClCompile Include="Source\Nodes\Idle.cpp" />
+    <ClCompile Include="Source\Nodes\CivilianIdle.cpp" />
     <ClCompile Include="Source\Nodes\KillVictim.cpp" />
     <ClCompile Include="Source\Nodes\PathToTarget.cpp" />
     <ClCompile Include="Source\Nodes\PursueSuspect.cpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="Source\msgnames.h" />
     <ClInclude Include="Source\msgroute.h" />
     <ClInclude Include="Source\MultiAnimation.h" />
+    <ClInclude Include="Source\Nodes\CopIdle.h" />
     <ClInclude Include="Source\Nodes\DecoratorInverter.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilFail.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilSucceed.h" />
@@ -236,7 +238,7 @@
     <ClInclude Include="Source\Nodes\Defeat.h" />
     <ClInclude Include="Source\Nodes\FalseArrest.h" />
     <ClInclude Include="Source\Nodes\FleeCop.h" />
-    <ClInclude Include="Source\Nodes\Idle.h" />
+    <ClInclude Include="Source\Nodes\CivilianIdle.h" />
     <ClInclude Include="Source\Nodes\KillVictim.h" />
     <ClInclude Include="Source\Nodes\PathToTarget.h" />
     <ClInclude Include="Source\Nodes\PursueSuspect.h" />

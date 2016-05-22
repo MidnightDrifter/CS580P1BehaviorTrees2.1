@@ -53,6 +53,9 @@ public:
 	void ComposeList( dbCompositionList & list, unsigned int type = 0 );
 
 
+	int GetSize(void);
+
+
 private:
 
 	typedef std::list<GameObject*> dbContainer;

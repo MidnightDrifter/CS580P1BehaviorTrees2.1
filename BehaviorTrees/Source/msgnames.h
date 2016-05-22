@@ -19,7 +19,13 @@ REGISTER_MESSAGE_NAME(MSG_CHANGE_SUBSTATE_DELAYED)		//Reserved message name
 //Add new messages here
 
 REGISTER_MESSAGE_NAME(MSG_EATEN)
-
+REGISTER_MESSAGE_NAME(VICTIM_KILLED_BROADCAST) //  SH added name--killer broadcasts on successful kill, civilians run, cop starts pursuit
+REGISTER_MESSAGE_NAME(PURSUIT_START_BROADCAST) //  SH added name--cop responds to victim killed broadcast, broadcasts start of pursuit step
+REGISTER_MESSAGE_NAME(PURSUIT_IN_PROGRESS_BROADCAST)  //SH added name--cop broadcasts that pursuit is in-progress, gives killer position data to move them properly
+REGISTER_MESSAGE_NAME(PURSUIT_IN_PROGRESS_RESPONSE)  //SH added name--killer responds to pursuit in progress broadcast, gives cop position data to move properly
+REGISTER_MESSAGE_NAME(PURSUIT_END_BROADCAST)  //SH added name--cop broadcasts that pursuit phase is over, cop and killer can return to normal behaviors
+REGISTER_MESSAGE_NAME(AGENT_TARGETED_PING)  //SH added name--killer pings a given agent, returns objectID if not cop, fails otherwise
+REGISTER_MESSAGE_NAME(AGENT_TARGETED_RESPONSE) //SH added name--how to respond to a 'you've been targeted' ping
 //Used for Zombie and Human demo state machines
 REGISTER_MESSAGE_NAME(MSG_CheckTouch)
 REGISTER_MESSAGE_NAME(MSG_Tagged)

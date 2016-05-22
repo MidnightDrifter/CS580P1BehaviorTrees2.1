@@ -186,7 +186,10 @@
     <ClCompile Include="Source\Nodes\SelectorRandomUntilFail.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\Idle.cpp">
+    <ClCompile Include="Source\Nodes\CivilianIdle.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\CopIdle.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
   </ItemGroup>
@@ -387,7 +390,10 @@
     <ClInclude Include="Source\Nodes\SelectorRandomUntilFail.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\Idle.h">
+    <ClInclude Include="Source\Nodes\CivilianIdle.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\CopIdle.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
   </ItemGroup>

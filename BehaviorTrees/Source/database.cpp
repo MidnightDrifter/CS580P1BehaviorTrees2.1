@@ -314,3 +314,17 @@ void Database::ComposeList( dbCompositionList & list, unsigned int type )
 	}
 }
 
+
+
+//SH ADDED METHOD
+/*Name:  GetSize
+Description:  Return a the size of the game object list
+Arguments:  None
+Returns:  int, number of game objects=size of list 
+*/
+
+int Database::GetSize()
+{
+	return m_database.size();
+}
+

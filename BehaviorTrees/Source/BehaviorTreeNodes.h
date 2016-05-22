@@ -31,7 +31,8 @@
 #include "Nodes/Defeat.h"  //SH added leaf node
 #include "Nodes/FalseArrest.h"  //SH added leaf node
 #include "Nodes/SelectRandomVictim.h"  //SH added leaf node
-#include "Nodes/Idle.h" //SH added leaf node
+#include "Nodes/CivilianIdle.h" //SH added leaf node
+#include "Nodes/CopIdle.h"  //SH added leaf node
 
 
 //IGNORE THESE
