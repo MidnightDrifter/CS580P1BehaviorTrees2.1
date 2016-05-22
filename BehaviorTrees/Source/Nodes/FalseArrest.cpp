@@ -13,24 +13,25 @@
 //    (abs(pos.y - target.y) < nearDist) &&
 //    (abs(pos.z - target.z) < nearDist);
 //}
-static bool jog = false;
+//static bool jog = false;
 LEAF_UPDATE_FUNC(FalseArrest)
 {
   GameObject *me = g_database.Find(self);
 
-    else
-    {
-     /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetIdleSpeed();
-      }*/
-    }
-  }
-  else
-  {
-    currentStatus = NS_Failed;
-  }
+  // if
+  //  {
+
+  //   /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+  //    {
+  //      currentStatus = NS_Completed;
+  //      me->GetMovement().SetIdleSpeed();
+  //    }*/
+  //  
+  //}
+  //else
+  //{
+  //  currentStatus = NS_Failed;
+  //}
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(FalseArrest)
