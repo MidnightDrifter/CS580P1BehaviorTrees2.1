@@ -17,15 +17,7 @@ static bool jog = false;
 LEAF_UPDATE_FUNC(FalseArrest)
 {
   GameObject *me = g_database.Find(self);
-  if (me)
-  {
-    if (currentStatus == NS_OnEnter)
-    {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
-      currentStatus = NS_Running;
-    }
+
     else
     {
      /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))

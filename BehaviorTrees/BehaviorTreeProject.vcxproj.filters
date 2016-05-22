@@ -192,6 +192,15 @@
     <ClCompile Include="Source\Nodes\CopIdle.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Nodes\MessageReceiver.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectorDataInitializer.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\CivilianMessageReceiver.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\MultiAnimation.h" />
@@ -394,6 +403,15 @@
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
     <ClInclude Include="Source\Nodes\CopIdle.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\MessageReceiver.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectorDataInitializer.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\CivilianMessageReceiver.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
   </ItemGroup>

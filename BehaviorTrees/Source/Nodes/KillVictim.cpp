@@ -6,22 +6,29 @@
 #include "../movement.h"
 #include "../GUIWindow.h"
 
-bool isNear(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist = 1.f / 100.f)
+bool isNearVictim(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist)
 {
-  return
-    (abs(pos.x - target.x) < nearDist) &&
-    (abs(pos.y - target.y) < nearDist) &&
-    (abs(pos.z - target.z) < nearDist);
+	return
+		(abs(pos.x - target.x) < nearDist) &&
+		(abs(pos.y - target.y) < nearDist) &&
+		(abs(pos.z - target.z) < nearDist);
 }
+
 //static bool jog = false;
 LEAF_UPDATE_FUNC(KillVictim)
 {
   GameObject *me = g_database.Find(self);
   GameObject *v = g_database.Find(victimID);
-  if (me && v && isNear(me->GetBody().GetPos(), v->GetBody().GetPos())  )
+  float nearDist = 1.f / 100.f;
+  if (me && v && isNearVictim(me->GetBody().GetPos(), v->GetBody().GetPos(), nearDist )  )
   {
 	  //Kill target
 	  v->MarkForDeletion();
+	  
+	  for (int i = 0; i < g_database.GetSize(); i++)
+	  {
+		  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,"MessageReceiver", MSG_Data(me->GetID()));
+	  }
 	  currentStatus = NS_Completed;
 	  
 	  
@@ -56,6 +63,9 @@ LEAF_UPDATE_FUNC(KillVictim)
   }
 }
 END_LEAF_UPDATE_FUNC
+
+
+
 
 ON_EDIT_FUNC(KillVictim)
 {

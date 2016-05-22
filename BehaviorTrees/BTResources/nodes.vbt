@@ -20,4 +20,5 @@ Leaves
 	Defeat "Killer loses, turn some drastic color"
 	FalseArrest "Hold a civilian and cop in place for 7.5s--officer has arrested the wrong person"
 	SelectRandomVictim "Select a random civilian to try and kill"
-	Idle "Have a civilian not move for 3s"
+	CivilianIdle "Have a civilian not move for 3s"
+	CopIdle "Have a cop not move for 1.5s"

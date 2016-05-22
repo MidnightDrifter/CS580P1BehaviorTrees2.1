@@ -1,0 +1,7 @@
+KillerTree Sequencer
+	Default DecoratorRunUntilSucceed
+		SelectRandomVictim Leaf
+	Default Sequencer
+		PathToTarget Leaf
+		SelectNearestTarget Leaf
+		KillVictim Leaf

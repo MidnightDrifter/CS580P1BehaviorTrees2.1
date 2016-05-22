@@ -16,8 +16,13 @@
 static bool jog = false;
 LEAF_UPDATE_FUNC(FleeCop)
 {
+	if (currentStatus == NS_OnEnter)
+	{
+		cID = copID;
+	}
+
   GameObject *me = g_database.Find(self);
-  GameObject *c = g_database.Find(copID);
+  GameObject *c = g_database.Find(cID);
   float randomScale = 0.5 * (rand() % 13);
   if (me && c)
   {
@@ -52,17 +57,11 @@ LEAF_UPDATE_FUNC(FleeCop)
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(FleeCop)
 {
-  ImGui::Checkbox("Jog", &jog);
+ // ImGui::Checkbox("Jog", &jog);
 }
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(FleeCop)
 {
-	GameObject *me = g_database.Find(self);
-	if (name == MSG_Arrived)
-	{
-		currentStatus = NS_Completed;
-		me->GetMovement().SetIdleSpeed();
-
-	}
+	
 }
 END_NODE_MSG_RECEIVED

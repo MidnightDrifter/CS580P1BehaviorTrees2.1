@@ -7,7 +7,7 @@
 #include "Nodes/SelectorRandomUntilFail.h"  //SH added selector
 #include "Nodes/SelectorRandom.h"
 #include "Nodes/SelectorSequencer.h"
-
+#include "Nodes/SelectorDataInitializer.h"  //SH added 'selector'
 
 //Decorators
 #include "Nodes/DecoratorInverter.h"
@@ -33,7 +33,8 @@
 #include "Nodes/SelectRandomVictim.h"  //SH added leaf node
 #include "Nodes/CivilianIdle.h" //SH added leaf node
 #include "Nodes/CopIdle.h"  //SH added leaf node
-
+#include "Nodes/MessageReceiver.h"  //SH added leaf node
+#include "Nodes/CivilianMessageReceiver.h" //SH added leaf node
 
 //IGNORE THESE
 /*

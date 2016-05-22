@@ -16,6 +16,11 @@
 //static bool jog = false;
 LEAF_UPDATE_FUNC(PursueSuspect)
 {
+
+	if (currentStatus == NS_OnEnter)
+	{
+		suspectID = killerID;
+	}
   GameObject *me = g_database.Find(self);
   GameObject *s = g_database.Find(suspectID);
   float randomScale = 0.5 * (rand() % 13);
@@ -43,7 +48,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(PursueSuspect)
 {
-  ImGui::Checkbox("Jog", &jog);
+//  ImGui::Checkbox("Jog", &jog);
 }
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(PursueSuspect)

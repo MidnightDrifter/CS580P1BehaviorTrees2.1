@@ -161,6 +161,7 @@
     <ClCompile Include="Source\msgroute.cpp" />
     <ClCompile Include="Source\MultiAnimation.cpp" />
     <ClCompile Include="Source\MultiAnimationLib.cpp" />
+    <ClCompile Include="Source\Nodes\CivilianMessageReceiver.cpp" />
     <ClCompile Include="Source\Nodes\CopIdle.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorInverter.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilFail.cpp" />
@@ -172,10 +173,12 @@
     <ClCompile Include="Source\Nodes\FleeCop.cpp" />
     <ClCompile Include="Source\Nodes\CivilianIdle.cpp" />
     <ClCompile Include="Source\Nodes\KillVictim.cpp" />
+    <ClCompile Include="Source\Nodes\MessageReceiver.cpp" />
     <ClCompile Include="Source\Nodes\PathToTarget.cpp" />
     <ClCompile Include="Source\Nodes\PursueSuspect.cpp" />
     <ClCompile Include="Source\Nodes\SelectFurthestTarget.cpp" />
     <ClCompile Include="Source\Nodes\SelectNearestTarget.cpp" />
+    <ClCompile Include="Source\Nodes\SelectorDataInitializer.cpp" />
     <ClCompile Include="Source\Nodes\SelectorRandom.cpp" />
     <ClCompile Include="Source\Nodes\SelectorRandomUntilFail.cpp" />
     <ClCompile Include="Source\Nodes\SelectorSequencer.cpp" />
@@ -229,6 +232,7 @@
     <ClInclude Include="Source\msgnames.h" />
     <ClInclude Include="Source\msgroute.h" />
     <ClInclude Include="Source\MultiAnimation.h" />
+    <ClInclude Include="Source\Nodes\CivilianMessageReceiver.h" />
     <ClInclude Include="Source\Nodes\CopIdle.h" />
     <ClInclude Include="Source\Nodes\DecoratorInverter.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilFail.h" />
@@ -240,10 +244,12 @@
     <ClInclude Include="Source\Nodes\FleeCop.h" />
     <ClInclude Include="Source\Nodes\CivilianIdle.h" />
     <ClInclude Include="Source\Nodes\KillVictim.h" />
+    <ClInclude Include="Source\Nodes\MessageReceiver.h" />
     <ClInclude Include="Source\Nodes\PathToTarget.h" />
     <ClInclude Include="Source\Nodes\PursueSuspect.h" />
     <ClInclude Include="Source\Nodes\SelectFurthestTarget.h" />
     <ClInclude Include="Source\Nodes\SelectNearestTarget.h" />
+    <ClInclude Include="Source\Nodes\SelectorDataInitializer.h" />
     <ClInclude Include="Source\Nodes\SelectorRandom.h" />
     <ClInclude Include="Source\Nodes\SelectorRandomUntilFail.h" />
     <ClInclude Include="Source\Nodes\SelectorSequencer.h" />

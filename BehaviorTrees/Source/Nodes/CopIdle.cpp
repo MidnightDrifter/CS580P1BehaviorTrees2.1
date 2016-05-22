@@ -16,29 +16,7 @@
 static bool jog = false;
 LEAF_UPDATE_FUNC(CopIdle)
 {
-  GameObject *me = g_database.Find(self);
-  if (me)
-  {
-    if (currentStatus == NS_OnEnter)
-    {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
-      currentStatus = NS_Running;
-    }
-    else
-    {
-     /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetCopIdleSpeed();
-      }*/
-    }
-  }
-  else
-  {
-    currentStatus = NS_Failed;
-  }
+ //Insert idle for 1.5s code here--maybe need a timer passed to it?
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(CopIdle)
@@ -48,9 +26,6 @@ ON_EDIT_FUNC(CopIdle)
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(CopIdle)
 {
-	if (name == AGENT_TARGETED_PING)
-	{
-		IBTNode::SendMsg(AGENT_TARGETED_RESPONSE, data.GetObjectID(), self, "", MSG_Data(0));
-	}
+
 }
 END_NODE_MSG_RECEIVED
