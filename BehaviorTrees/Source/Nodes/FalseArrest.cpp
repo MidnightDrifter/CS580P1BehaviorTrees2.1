@@ -36,7 +36,7 @@ LEAF_UPDATE_FUNC(FalseArrest)
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(FalseArrest)
 {
-  ImGui::Checkbox("Jog", &jog);
+  //ImGui::Checkbox("Jog", &jog);
 }
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(FalseArrest)
