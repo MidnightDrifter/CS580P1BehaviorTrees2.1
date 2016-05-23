@@ -16,7 +16,22 @@
 //static bool jog = false;
 LEAF_UPDATE_FUNC(FalseArrest)
 {
-  GameObject *me = g_database.Find(self);
+	if (currentStatus == NS_OnEnter)
+	{
+		timeAcc = 0.f;
+
+	 }
+
+	if (timeAcc >= 2000)
+	{
+		currentStatus = NS_Completed;
+	}
+
+	else
+	{
+		timeAcc = dt;
+		currentStatus = NS_Running;
+	}
 
   // if
   //  {
@@ -41,12 +56,12 @@ ON_EDIT_FUNC(FalseArrest)
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(FalseArrest)
 {
-	GameObject *me = g_database.Find(self);
-	if (name == MSG_Arrived)
-	{
-		currentStatus = NS_Completed;
-		me->GetMovement().SetIdleSpeed();
+	//GameObject *me = g_database.Find(self);
+	//if (name == MSG_Arrived)
+	//{
+	//	currentStatus = NS_Completed;
+	//	me->GetMovement().SetIdleSpeed();
 
-	}
+	//}
 }
 END_NODE_MSG_RECEIVED

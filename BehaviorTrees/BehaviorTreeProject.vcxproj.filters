@@ -159,9 +159,6 @@
     <ClCompile Include="Source\Nodes\DecoratorRunXTimesOrUntilSucceed.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\Victory.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Nodes\KillVictim.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
@@ -189,16 +186,10 @@
     <ClCompile Include="Source\Nodes\CivilianIdle.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\CopIdle.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\MessageReceiver.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Nodes\SelectorDataInitializer.cpp">
+    <ClCompile Include="Source\Nodes\SelectorMessageReader.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\CivilianMessageReceiver.cpp">
+    <ClCompile Include="Source\Nodes\ArrestTarget.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
   </ItemGroup>
@@ -372,9 +363,6 @@
     <ClInclude Include="Source\Nodes\DecoratorRunXTimesOrUntilSucceed.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\Victory.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Nodes\KillVictim.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
@@ -402,16 +390,10 @@
     <ClInclude Include="Source\Nodes\CivilianIdle.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\CopIdle.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\MessageReceiver.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Nodes\SelectorDataInitializer.h">
+    <ClInclude Include="Source\Nodes\SelectorMessageReader.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\CivilianMessageReceiver.h">
+    <ClInclude Include="Source\Nodes\ArrestTarget.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
   </ItemGroup>

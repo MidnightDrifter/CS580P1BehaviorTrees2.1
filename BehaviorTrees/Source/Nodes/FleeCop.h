@@ -1,4 +1,4 @@
-DEFINE_LEAF_NODE(FleeCop, "Killer flees cop for duration of chase", objectID cID; void OnEdit();)
+DEFINE_LEAF_NODE(FleeCop, "Killer flees cop for duration of chase", objectID copID; float timeAcc; void OnEdit();)
 
 //Flee movement
 //Suspect estimates cop's speed, gauges where the cop will go based on suspect's own speed, move in the opposite direction +/- some randomness

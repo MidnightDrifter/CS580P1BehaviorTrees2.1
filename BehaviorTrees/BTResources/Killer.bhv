@@ -1,0 +1,14 @@
+Killer SelectorRandom
+	WanderXTimes DecoratorRunXTimes
+		Wander Sequencer
+			SelectRandomTarget Leaf
+			PathToTarget Leaf
+	KillForceSuccess DecoratorRunUntilFail
+		Kill Sequencer
+			SelectRandomVictim Leaf
+			PathToTarget Leaf
+			KillVictim Leaf
+			FleeCop Leaf
+			CheckSelfForArrest MessageReader
+				Defeat Leaf
+				SelectRandomTarget Leaf

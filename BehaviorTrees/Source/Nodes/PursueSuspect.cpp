@@ -16,21 +16,44 @@
 //static bool jog = false;
 LEAF_UPDATE_FUNC(PursueSuspect)
 {
-
 	if (currentStatus == NS_OnEnter)
 	{
-		suspectID = killerID;
+		suspectID = -1;
+		timeAcc = 0.f;
 	}
+
+
   GameObject *me = g_database.Find(self);
-  GameObject *s = g_database.Find(suspectID);
-  float randomScale = 0.5 * (rand() % 13);
-  if (me && s)
+  GameObject *s = NULL;
+  if (suspectID != -1)
+  {
+	  s = g_database.Find(suspectID);
+  }
+
+
+  float randomScale = 0.5f * (rand() % 13);
+  if (timeAcc >= 3000.f)  //Time is in ms?
+  {
+	  currentStatus = NS_Completed;
+  }
+
+  else if (me)
   {
    
       
        me->GetMovement().SetJogSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
-      currentStatus = NS_Running;
+	   if (suspectID != -1)
+	   {
+		   me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
+		   timeAcc = dt;
+		   currentStatus = NS_Running;
+	   }
+
+	   else
+	   {
+		   currentStatus = NS_Failed;
+	   }
+      
     
    
       /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
@@ -40,6 +63,8 @@ LEAF_UPDATE_FUNC(PursueSuspect)
       }*/
     
   }
+
+ 
   else
   {
     currentStatus = NS_Failed;
@@ -53,12 +78,18 @@ ON_EDIT_FUNC(PursueSuspect)
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(PursueSuspect)
 {
-	GameObject *me = g_database.Find(self);
-	if (name == MSG_Arrived)
+if (name == VICTIM_KILLED_BROADCAST)
 	{
-		currentStatus = NS_Completed;
-		me->GetMovement().SetIdleSpeed();
+		suspectID = data.GetObjectID();
+		IBTNode::SendMsg(VICTIM_KILLED_RESPONSE, data.GetObjectID(), self, "FleeCop", MSG_Data(self));
 
+		/*for (int i = 0; i < g_database.GetSize(); ++i)
+		{
+			if (i != static_cast<int>(self) && i != static_cast<int>(suspectID))
+			{
+				IBTNode::SendMsg(VICTIM_KILLED_RESPONSE, static_cast<objectID>(i), self, "CivilianIdle", MSG_Data(self));
+			}
+		}*/
 	}
 }
 END_NODE_MSG_RECEIVED

@@ -18,19 +18,43 @@ LEAF_UPDATE_FUNC(FleeCop)
 {
 	if (currentStatus == NS_OnEnter)
 	{
-		cID = copID;
+		copID = -1;
+		timeAcc = 0.f;
 	}
 
   GameObject *me = g_database.Find(self);
-  GameObject *c = g_database.Find(cID);
+  GameObject *c = NULL;
+
+  
+
   float randomScale = 0.5 * (rand() % 13);
-  if (me && c)
+
+
+  if (copID != -1)
+  {
+	  c = g_database.Find(copID);
+  }
+
+  if (timeAcc >= 3000) //Time in ms?
+  {
+	  currentStatus = NS_Completed;
+	  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, copID, self, "ArrestTarget", MSG_Data(self));
+  }
+  else if (me)
   {
 
 	  me->GetMovement().SetJogSpeed();
-	      me->GetMovement().SetTarget(me->GetTargetPOS() - randomScale * (c->GetBody().GetDir()));
-	      currentStatus = NS_Running;
+	  if (copID != -1)
+	  {
+		  me->GetMovement().SetTarget(me->GetTargetPOS() - randomScale * (c->GetBody().GetDir()));
+		  timeAcc = dt;
+		  currentStatus = NS_Running;
+	  }
 
+	  else
+	  {
+		  currentStatus = NS_Failed;
+	  }
 
 
   //  if (currentStatus == NS_OnEnter)
@@ -53,6 +77,12 @@ LEAF_UPDATE_FUNC(FleeCop)
   //{
   //  currentStatus = NS_Failed;
   }
+
+  else
+  {
+	  currentStatus = NS_Failed;
+  }
+
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(FleeCop)
@@ -62,6 +92,9 @@ ON_EDIT_FUNC(FleeCop)
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(FleeCop)
 {
-	
+	if(name == VICTIM_KILLED_RESPONSE)
+	{
+		copID = data.GetObjectID();
+	}
 }
 END_NODE_MSG_RECEIVED

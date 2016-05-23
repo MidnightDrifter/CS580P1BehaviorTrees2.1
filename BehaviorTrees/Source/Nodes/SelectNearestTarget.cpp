@@ -9,6 +9,15 @@
 // helper function, copied from example.cpp with slight modifications.
 objectID GetNearestAgent(objectID);
 
+bool isNearPerson(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist)
+{
+	return
+		(abs(pos.x - target.x) < nearDist) &&
+		(abs(pos.y - target.y) < nearDist) &&
+		(abs(pos.z - target.z) < nearDist);
+}
+
+
 LEAF_UPDATE_FUNC(SelectNearestTarget)
 {
   if (currentStatus == NS_OnEnter)
@@ -29,6 +38,7 @@ LEAF_UPDATE_FUNC(SelectNearestTarget)
         objectID nearestAgent = GetNearestAgent(self);
         D3DXVECTOR3 target = g_database.Find(nearestAgent)->GetBody().GetPos();
         me->SetTargetPOS(target);
+		
         currentStatus = NS_Completed;
       }
       else
@@ -86,6 +96,6 @@ END_ON_EDIT_FUNC
 
 NODE_MSG_RECEIVED(SelectNearestTarget)
 {
-
+	
 }
 END_NODE_MSG_RECEIVED

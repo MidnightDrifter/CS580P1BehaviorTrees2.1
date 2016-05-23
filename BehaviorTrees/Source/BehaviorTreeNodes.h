@@ -4,10 +4,10 @@
 #define BEHAVIOR_TREE_NODES_H
 
 //Selectors
+#include "Nodes/SelectorMessageReader.h"  //SH added selector
 #include "Nodes/SelectorRandomUntilFail.h"  //SH added selector
 #include "Nodes/SelectorRandom.h"
 #include "Nodes/SelectorSequencer.h"
-#include "Nodes/SelectorDataInitializer.h"  //SH added 'selector'
 
 //Decorators
 #include "Nodes/DecoratorInverter.h"
@@ -24,17 +24,15 @@
 #include "Nodes/SelectNearestTarget.h"  //SH added leaf node
 #include "Nodes/FleeCop.h"  //SH added leaf node
 #include "Nodes/PursueSuspect.h"  //SH added leaf node
-
+#include "Nodes/ArrestTarget.h"  //SH added leaf node
 
 #include "Nodes/KillVictim.h" //SH added leaf node
-#include "Nodes/Victory.h"  //SH added leaf node
 #include "Nodes/Defeat.h"  //SH added leaf node
 #include "Nodes/FalseArrest.h"  //SH added leaf node
 #include "Nodes/SelectRandomVictim.h"  //SH added leaf node
 #include "Nodes/CivilianIdle.h" //SH added leaf node
-#include "Nodes/CopIdle.h"  //SH added leaf node
-#include "Nodes/MessageReceiver.h"  //SH added leaf node
-#include "Nodes/CivilianMessageReceiver.h" //SH added leaf node
+//#include "Nodes/CopIdle.h"  //SH added leaf node
+
 
 //IGNORE THESE
 /*

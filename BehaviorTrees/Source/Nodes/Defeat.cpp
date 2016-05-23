@@ -25,7 +25,7 @@ LEAF_UPDATE_FUNC(Defeat)
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(Defeat)
 {
-  ImGui::Checkbox("Jog", &jog);
+ // ImGui::Checkbox("Jog", &jog);
 }
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(Defeat)

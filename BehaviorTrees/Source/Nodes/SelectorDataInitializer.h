@@ -1,1 +1,0 @@
-DEFINE_SELECTOR_NODE(DataInitializer, "DataInitializer", void OnEdit(); objectID killerID; objectID copID; objectID targetID;  bool branchToVictory; bool branchToDefeat;)

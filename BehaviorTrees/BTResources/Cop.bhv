@@ -1,0 +1,8 @@
+Cop Sequencer
+	LoopUntilSuccess DecoratorRunUntilSucceed
+		PursueSuspect Leaf
+	ArrestTarget Leaf
+	ArrestCheck MessageReader
+		FalseArrest Leaf
+		CivilianIdle Leaf
+	CivilianIdle Leaf

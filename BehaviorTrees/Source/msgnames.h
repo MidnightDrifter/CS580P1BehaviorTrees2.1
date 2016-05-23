@@ -21,7 +21,10 @@ REGISTER_MESSAGE_NAME(MSG_CHANGE_SUBSTATE_DELAYED)		//Reserved message name
 REGISTER_MESSAGE_NAME(MSG_EATEN)
 REGISTER_MESSAGE_NAME(VICTIM_KILLED_BROADCAST) //  SH added name--killer broadcasts on successful kill, cop starts pursuit
 REGISTER_MESSAGE_NAME(VICTIM_KILLED_RESPONSE)  //SH added name--cop responds with its objectID, killer and cop can now update their positions based on one another
-
+REGISTER_MESSAGE_NAME(ARREST_TARGET)  //SH added name--message cop sends to itself to keep track of who they're attempting to arrest
+REGISTER_MESSAGE_NAME(ARREST_SUCCESSFUL_MESSAGE)  //SH added name--cop messages successful arrest, branch to defeat for killer
+REGISTER_MESSAGE_NAME(VICTIM_ID)  //SH added name--killer messages victim ID to self
+REGISTER_MESSAGE_NAME(FALSE_ARREST_MESSAGE)  //SH added name--civilian respons to cop's false arrest
 //REGISTER_MESSAGE_NAME(PURSUIT_START_BROADCAST) //  SH added name--cop responds to victim killed broadcast, broadcasts start of pursuit step
 //REGISTER_MESSAGE_NAME(PURSUIT_IN_PROGRESS_BROADCAST)  //SH added name--cop broadcasts that pursuit is in-progress, gives killer position data to move them properly//
 //REGISTER_MESSAGE_NAME(PURSUIT_IN_PROGRESS_RESPONSE)  //SH added name--killer responds to pursuit in progress broadcast, gives cop position data to move properly

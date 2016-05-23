@@ -28,6 +28,9 @@ ON_EDIT_FUNC(SelectRandomTarget)
 END_ON_EDIT_FUNC
 NODE_MSG_RECEIVED(SelectRandomTarget)
 {
-
+	if (name == AGENT_TARGETED_RESPONSE)
+	{
+	//	IBTNode::SendMsg(VICTIM_ID, data.GetObjectID(), self, "KillVictim", MSG_Data(self));
+	}
 }
 END_NODE_MSG_RECEIVED

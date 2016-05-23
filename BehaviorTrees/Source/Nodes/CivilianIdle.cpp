@@ -26,23 +26,21 @@ LEAF_UPDATE_FUNC(CivilianIdle)
   {
     if (currentStatus == NS_OnEnter)
     {
-      if (jog)me->GetMovement().SetJogSpeed();
-      else me->GetMovement().SetWalkSpeed();
-      me->GetMovement().SetTarget(me->GetTargetPOS());
+		timeAcc = 0.f;
       currentStatus = NS_Running;
     }
-    else
+
+	
+
+    if(timeAcc >= 500)
     {
-     /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetCivilianIdleSpeed();
-      }*/
+		currentStatus = NS_Completed;
     }
   }
   else
   {
-    currentStatus = NS_Failed;
+	  timeAcc = dt;
+    currentStatus = NS_Running;
   }
 }
 END_LEAF_UPDATE_FUNC
@@ -58,7 +56,12 @@ NODE_MSG_RECEIVED(CivilianIdle)
 {
 	if (name == AGENT_TARGETED_PING)
 	{
-		IBTNode::SendMsg(AGENT_TARGETED_RESPONSE, data.GetObjectID(), self, "", MSG_Data(0));
+		IBTNode::SendMsg(AGENT_TARGETED_RESPONSE, data.GetObjectID(), self, "SelectRandomVictim", MSG_Data(0));
 	}
+
+	//else if (name == ARREST_TARGET)
+	//{
+	//	IBTNode::SendMsg(,data.GetObjectID(),self,"")
+	//}
 }
 END_NODE_MSG_RECEIVED
