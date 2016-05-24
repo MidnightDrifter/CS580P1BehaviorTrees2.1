@@ -192,6 +192,9 @@
     <ClCompile Include="Source\Nodes\ArrestTarget.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Nodes\DecoratorPrintGibberish.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\MultiAnimation.h" />
@@ -395,6 +398,9 @@
     </ClInclude>
     <ClInclude Include="Source\Nodes\ArrestTarget.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\DecoratorPrintGibberish.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

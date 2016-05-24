@@ -163,6 +163,7 @@
     <ClCompile Include="Source\MultiAnimationLib.cpp" />
     <ClCompile Include="Source\Nodes\ArrestTarget.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorInverter.cpp" />
+    <ClCompile Include="Source\Nodes\DecoratorPrintGibberish.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilFail.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilSucceed.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunXTimes.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Source\MultiAnimation.h" />
     <ClInclude Include="Source\Nodes\ArrestTarget.h" />
     <ClInclude Include="Source\Nodes\DecoratorInverter.h" />
+    <ClInclude Include="Source\Nodes\DecoratorPrintGibberish.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilFail.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilSucceed.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunXTimes.h" />

@@ -18,18 +18,37 @@ bool isNearVictim(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist)
 LEAF_UPDATE_FUNC(KillVictim)
 {
   GameObject *me = g_database.Find(self);
-  GameObject *v = g_database.Find(victimID);
-  float nearDist = 1.f / 100.f;
-  if (me && v && isNearVictim(me->GetBody().GetPos(), v->GetBody().GetPos(), nearDist )  )
+  if(me)
+  {GameObject *v = NULL;// g_database.Find(victimID);
+  float nearDist = 1.f / 0.1f;
+  for (int i = 0; i < g_database.GetSize(); ++i)
   {
-	  //Kill target
-	  v->MarkForDeletion();
+	  v = g_database.Find(static_cast<objectID>(i));
 	  
-	  for (int i = 0; i < g_database.GetSize(); i++)
+	  if (v)
 	  {
-		  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,"PursueSuspect", MSG_Data(me->GetID()));
-		 // IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,)
+		  if ( isNearVictim(me->GetBody().GetPos(), v->GetBody().GetPos(), nearDist))
+		  {
+			  //Kill target
+			  v->MarkForDeletion();
+			  i = g_database.GetSize();
+			  for (int j = 0; j < g_database.GetSize(); ++j)
+			  {
+				  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self, "PursueSuspect", MSG_Data(me->GetID()));
+				  // IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,)
+			  }
+		  }
+		  else
+		  {
+			  currentStatus = NS_Failed;
+		  }
 	  }
+	  else
+	  {
+		  currentStatus = NS_Failed;
+	  }
+  }
+	
 	  currentStatus = NS_Completed;
 	  
 	  

@@ -24,6 +24,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 			{
 				(currX)++;
 				//[tell child to run again here?]
+				//m_currentChildIndex = 0;
 				currentStatus = NS_Running;
 			}
 

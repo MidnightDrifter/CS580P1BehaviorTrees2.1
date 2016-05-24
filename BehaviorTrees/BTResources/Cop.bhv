@@ -1,5 +1,5 @@
 Cop Sequencer
-	LoopUntilSuccess DecoratorRunUntilSucceed
+	LoopXTimesOrUntilSuccess DecoratorRunXTimesOrUntilSucceed
 		PursueSuspect Leaf
 	ArrestTarget Leaf
 	ArrestCheck MessageReader

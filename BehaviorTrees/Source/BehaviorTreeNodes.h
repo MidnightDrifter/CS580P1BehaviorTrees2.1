@@ -15,6 +15,8 @@
 #include "Nodes/DecoratorRunXTimes.h"  //SH added decorator
 #include "Nodes/DecoratorRunUntilFail.h"  //SH added decorator
 #include "Nodes/DecoratorRunXTimesOrUntilSucceed.h"  //SH added decorator
+//#include "Nodes/DecoratorRunForever.h"  //SH added decorator
+#include "Nodes/DecoratorPrintGibberish.h"
 
 
 //General leaf nodes

@@ -9,6 +9,7 @@ Decorators
 	DecoratorRunXTimes "Run a node X times"
 	DecoratorRunUntilFail "Continues running a node until the node fails"
 	DecoratorRunXTimesOrUntilSucceed "Decorator Run X Times Or Until Success"
+	DecoratorPrintGibberish "Have the civilians say gibberish?"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
 	SelectRandomTarget "Sets the AI agent's target position to a random point."

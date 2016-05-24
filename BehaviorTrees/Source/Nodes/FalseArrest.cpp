@@ -18,18 +18,18 @@ LEAF_UPDATE_FUNC(FalseArrest)
 {
 	if (currentStatus == NS_OnEnter)
 	{
-		timeAcc = 0.f;
+		timeAcc = dt;
 
 	 }
 
-	if (timeAcc >= 2000)
+	if (timeAcc >= 2.f)
 	{
 		currentStatus = NS_Completed;
 	}
 
 	else
 	{
-		timeAcc = dt;
+		//timeAcc = dt;
 		currentStatus = NS_Running;
 	}
 
