@@ -22,4 +22,3 @@ Leaves
 	FalseArrest "Hold cop in place for 2s--officer has arrested the wrong person"
 	SelectRandomVictim "Select a random civilian to try and kill"
 	CivilianIdle "Have a civilian not move for 0.5s"
-	CopIdle "Have a cop not move for 1.5s"
