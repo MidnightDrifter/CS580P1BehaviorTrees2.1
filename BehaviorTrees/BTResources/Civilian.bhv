@@ -1,14 +1,11 @@
 Civilian Sequencer
-	WalkOrIdle DecoratorRunXTimesOrUntilSucceed
-		WalkOrIdleSelect SelectorRandom
-			ForceSuccess DecoratorRunUntilSucceed
-				Walk Sequencer
-					SelectTarget SelectorRandom
-						SelectRandomTarget Leaf
-						SelectFurthestTarget Leaf
-						SelectNearestTarget Leaf
-					PathToTarget Leaf
-					CivilianIdle Leaf
-	MessageCheck MessageReader
+	Move Sequencer
+		SelectPoint SelectorRandom
+			SelectNearestTarget Leaf
+			SelectFurthestTarget Leaf
+			SelectRandomTarget Leaf
+		PathToTarget Leaf
+		CivilianIdle Leaf
+	CheckMessages MessageReader
 		FalseArrest Leaf
 		CivilianIdle Leaf

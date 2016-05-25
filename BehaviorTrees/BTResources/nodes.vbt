@@ -3,12 +3,15 @@ Selectors
 	SelectorRandomUntilFail "Selector Random Until Fail"
 	SelectorRandom "Selector Random"
 	Sequencer "Sequencer"
+	SequencerRegardlessOfFail "Sequencer that continues despite a failure"
 Decorators
 	DecoratorInverter "Decorator Inverter"
 	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
 	DecoratorRunXTimes "Run a node X times"
 	DecoratorRunUntilFail "Continues running a node until the node fails"
 	DecoratorRunXTimesOrUntilSucceed "Decorator Run X Times Or Until Success"
+	DecoratorPrintGibberish "Have the civilians say gibberish?"
+	DecoratorAlwaysSucceed "Decorator that always succeeds"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
 	SelectRandomTarget "Sets the AI agent's target position to a random point."

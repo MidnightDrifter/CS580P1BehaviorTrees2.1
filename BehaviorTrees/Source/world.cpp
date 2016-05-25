@@ -119,7 +119,7 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 
 #else
 
-	for( int i=0; i<10; i++ )
+	for( int i=0; i<3; i++ )
 	{
 		//Create game objects
 		char name[10] = "Civilian";
@@ -134,36 +134,36 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
     npc->CreateBehaviorTree("Civilian");
 		g_database.Store( *npc );
 	}
- // for (int i = 10; i<12; i++)
- // {
+  for (int i = 10; i<11; i++)
+  {
     //Create game objects
-    char name[10] = "Cop";
-    sprintf(name, "%s%d", name, 1.0);
+    char name[10] = "Killer";
+    sprintf(name, "%s%d", name, i);
     GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
     D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
     pos.x = ((float)(rand() % 100)) / 100.0f;
     pos.z = ((float)(rand() % 100)) / 100.0f;
     npc->CreateBody(100, pos);
     npc->CreateMovement();
-    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.0f, 0.0f, 9.950f);	//Color if needed
+    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 0.0f, 0.0f);	//Color if needed
+    npc->CreateBehaviorTree("Killer");
+    g_database.Store(*npc);
+  }
+  for (int i = 12; i<13; i++)
+  {
+    //Create game objects
+    char name[10] = "Cop";
+    sprintf(name, "%s%d", name, i);
+    GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
+    D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+    pos.x = ((float)(rand() % 100)) / 100.0f;
+    pos.z = ((float)(rand() % 100)) / 100.0f;
+    npc->CreateBody(100, pos);
+    npc->CreateMovement();
+    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.0f, 0.0f, 0.90f);	//Color if needed
     npc->CreateBehaviorTree("Cop");
     g_database.Store(*npc);
- // }
-  //for (int i = 12; i<13; i++)
-  //{
-    //Create game objects
-    char name1[10] = "Killer";
-    sprintf(name1, "%s%d", name1, 1.0);
-    GameObject* npc1 = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name1);
-    D3DXVECTOR3 pos1(0.0f, 0.0f, 0.0f);
-    pos1.x = ((float)(rand() % 100)) / 100.0f;
-    pos1.z = ((float)(rand() % 100)) / 100.0f;
-    npc1->CreateBody(100, pos1);
-    npc1->CreateMovement();
-    npc1->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.950f, 0.0f, 0.0f);	//Color if needed
-    npc1->CreateBehaviorTree("Killer");
-    g_database.Store(*npc1);
-  //}
+  }
 #endif
 
 	}

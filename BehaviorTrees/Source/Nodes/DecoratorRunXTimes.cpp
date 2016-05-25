@@ -25,6 +25,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 			if ((currX) < x)
 			{
 				(currX)++;
+			//	m_currentChildIndex = 0;
 				//[tell child to run again here?]
 			}
 

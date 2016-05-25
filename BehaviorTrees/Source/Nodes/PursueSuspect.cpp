@@ -19,7 +19,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 	if (currentStatus == NS_OnEnter)
 	{
 		suspectID = -1;
-		timeAcc = 0.f;
+		timeAcc = dt;
 	}
 
 
@@ -32,7 +32,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 
 
   float randomScale = 0.5f * (rand() % 13);
-  if (timeAcc >= 3000.f)  //Time is in ms?
+  if (timeAcc >= 3)  //Time is in ms?
   {
 	  currentStatus = NS_Completed;
   }
@@ -45,7 +45,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 	   if (suspectID != -1)
 	   {
 		   me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
-		   timeAcc = dt;
+		   //timeAcc = dt;
 		   currentStatus = NS_Running;
 	   }
 
