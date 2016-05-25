@@ -20,55 +20,66 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 	{
 		suspectID = -1;
 		timeAcc = dt;
+		timer = 0.0f;
+
+		currentStatus = NS_Running;
 	}
 
+	if (timer > 0.5f)
+	{
+		timer = 0.0f;
 
-  GameObject *me = g_database.Find(self);
-  GameObject *s = NULL;
-  if (suspectID != -1)
-  {
-	  s = g_database.Find(suspectID);
-  }
+		GameObject *me = g_database.Find(self);
+		GameObject *s = NULL;
+		if (suspectID != -1)
+		{
+			s = g_database.Find(suspectID);
+		}
+
+		float randomScale = 0.5f * (rand() % 13);
+		if (timeAcc >= 3)  //Time is in ms?
+		{
+			currentStatus = NS_Completed;
+		}
+
+		else if (me)
+		{
 
 
-  float randomScale = 0.5f * (rand() % 13);
-  if (timeAcc >= 3)  //Time is in ms?
-  {
-	  currentStatus = NS_Completed;
-  }
+			me->GetMovement().SetJogSpeed();
+			if (suspectID != -1)
+			{
+				me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
+				//timeAcc = dt;
+				currentStatus = NS_Running;
+			}
 
-  else if (me)
-  {
-   
-      
-       me->GetMovement().SetJogSpeed();
-	   if (suspectID != -1)
-	   {
-		   me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
-		   //timeAcc = dt;
-		   currentStatus = NS_Running;
-	   }
+			else
+			{
+				currentStatus = NS_Failed;
+			}
 
-	   else
-	   {
-		   currentStatus = NS_Failed;
-	   }
-      
-    
-   
-      /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetIdleSpeed();
-      }*/
-    
-  }
 
- 
-  else
-  {
-    currentStatus = NS_Failed;
-  }
+
+			/*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+			{
+			currentStatus = NS_Completed;
+			me->GetMovement().SetIdleSpeed();
+			}*/
+
+		}
+
+
+		else
+		{
+			currentStatus = NS_Failed;
+		}
+	}
+	else
+	{
+		timer += dt;
+	}
+
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(PursueSuspect)

@@ -1,1 +1,1 @@
-DEFINE_DECORATOR_NODE(DecoratorRunXTimes, "Run a node X times", int x; int  currX; void OnEdit();)
+DEFINE_DECORATOR_NODE(DecoratorRunXTimes, "Run a node X times", int x=5; int  currX; void OnEdit();)

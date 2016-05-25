@@ -1,4 +1,4 @@
-DEFINE_LEAF_NODE(PursueSuspect, "Officer chases another actor for a time", objectID suspectID; float timeAcc; void OnEdit();)
+DEFINE_LEAF_NODE(PursueSuspect, "Officer chases another actor for a time", objectID suspectID; float timeAcc; float timer; void OnEdit();)
 //Broadcast pursuit mode
 //Get another actor--the killer--and pursue them
 //Chase for certain amount of time
