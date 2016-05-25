@@ -6,7 +6,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 	if (currentStatus == NS_OnEnter)
 	{
 		currentStatus = NS_Running;
-		(*currX) = 0;
+		(currX) = 0;
 		m_currentChildIndex = 0;
 	}
 	else
@@ -20,9 +20,9 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 		else if (childStatus = NS_Failed)
 		{
 			//currentStatus = NS_Failed;
-			if ((*currX) < x)
+			if ((currX) < x)
 			{
-				(*currX)++;
+				(currX)++;
 				//[tell child to run again here?]
 				//m_currentChildIndex = 0;
 				currentStatus = NS_Running;

@@ -20,7 +20,7 @@ LEAF_UPDATE_FUNC(KillVictim)
   GameObject *me = g_database.Find(self);
   if(me)
   {GameObject *v = NULL;// g_database.Find(victimID);
-  float nearDist = 1.f / 0.1f;
+  float nearDist = 1.f / 10.f;
   for (int i = 0; i < g_database.GetSize(); ++i)
   {
 	  v = g_database.Find(static_cast<objectID>(i));

@@ -119,10 +119,10 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 
 #else
 
-	for( int i=0; i<10; i++ )
+	for( int i=0; i<3; i++ )
 	{
 		//Create game objects
-		char name[10] = "BTAgent";
+		char name[10] = "Civilian";
 		sprintf( name, "%s%d", name, i );
 		GameObject* npc = new GameObject( g_database.GetNewObjectID(), OBJECT_NPC, name );
 		D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
@@ -131,13 +131,13 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		npc->CreateBody( 100, pos );
 		npc->CreateMovement();
 		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
-    npc->CreateBehaviorTree("Wandering");
+    npc->CreateBehaviorTree("Civilian");
 		g_database.Store( *npc );
 	}
-  for (int i = 10; i<12; i++)
+  for (int i = 10; i<11; i++)
   {
     //Create game objects
-    char name[10] = "BTAgent";
+    char name[10] = "Killer";
     sprintf(name, "%s%d", name, i);
     GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
     D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
@@ -145,14 +145,14 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
     pos.z = ((float)(rand() % 100)) / 100.0f;
     npc->CreateBody(100, pos);
     npc->CreateMovement();
-    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-    npc->CreateBehaviorTree("Sheep");
+    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 0.0f, 0.0f);	//Color if needed
+    npc->CreateBehaviorTree("Killer");
     g_database.Store(*npc);
   }
   for (int i = 12; i<13; i++)
   {
     //Create game objects
-    char name[10] = "BTAgent";
+    char name[10] = "Cop";
     sprintf(name, "%s%d", name, i);
     GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
     D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
@@ -160,8 +160,8 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
     pos.z = ((float)(rand() % 100)) / 100.0f;
     npc->CreateBody(100, pos);
     npc->CreateMovement();
-    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-    npc->CreateBehaviorTree("BadHunter");
+    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.0f, 0.0f, 0.90f);	//Color if needed
+    npc->CreateBehaviorTree("Cop");
     g_database.Store(*npc);
   }
 #endif

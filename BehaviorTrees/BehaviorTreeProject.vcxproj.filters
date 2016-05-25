@@ -195,6 +195,12 @@
     <ClCompile Include="Source\Nodes\DecoratorPrintGibberish.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Nodes\DecoratorAlwaysSucceed.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectorSequencerRegardlessOfFail.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\MultiAnimation.h" />
@@ -401,6 +407,12 @@
     </ClInclude>
     <ClInclude Include="Source\Nodes\DecoratorPrintGibberish.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\DecoratorAlwaysSucceed.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectorSequencerRegardlessOfFail.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

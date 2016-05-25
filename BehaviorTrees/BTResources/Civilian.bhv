@@ -1,12 +1,11 @@
 Civilian Sequencer
-	SayGibberish DecoratorPrintGibberish
-		Move Sequencer
-			SelectPoint SelectorRandom
-				SelectNearestTarget Leaf
-				SelectFurthestTarget Leaf
-				SelectRandomTarget Leaf
-			PathToTarget Leaf
-			CivilianIdle Leaf
+	Move Sequencer
+		SelectPoint SelectorRandom
+			SelectNearestTarget Leaf
+			SelectFurthestTarget Leaf
+			SelectRandomTarget Leaf
+		PathToTarget Leaf
+		CivilianIdle Leaf
 	CheckMessages MessageReader
 		FalseArrest Leaf
 		CivilianIdle Leaf

@@ -6,10 +6,11 @@ LOGIC_UPDATE_FUNC(MessageReader)
 	{
 		//currentStatus = NS_Running;
 		childIndex = 1;
+		currentStatus = NS_Running;
+		m_currentChildIndex = childIndex;
 	}
 
-	currentStatus = NS_Running;
-	m_currentChildIndex = childIndex;
+
 
 
 	if (childStatus != NS_OnEnter || childStatus != NS_Running)

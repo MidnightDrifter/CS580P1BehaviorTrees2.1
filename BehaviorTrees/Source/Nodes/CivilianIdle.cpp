@@ -18,12 +18,12 @@
 //NOTE TO SELF:   CivilianIdle WILL BE THE HEAD OF BOTH THE CIVILIAN AND COP NODES
 
 
-static bool jog = false;
+//static bool jog = false;
 LEAF_UPDATE_FUNC(CivilianIdle)
 {
-  GameObject *me = g_database.Find(self);
-  if (me)
-  {
+ // GameObject *me = g_database.Find(self);
+ // if (me)
+ // {
     if (currentStatus == NS_OnEnter)
     {
 		timeAcc = dt;
@@ -36,7 +36,7 @@ LEAF_UPDATE_FUNC(CivilianIdle)
     {
 		currentStatus = NS_Completed;
     }
-  }
+ // }
   else
   {
 	  //timeAcc = dt;

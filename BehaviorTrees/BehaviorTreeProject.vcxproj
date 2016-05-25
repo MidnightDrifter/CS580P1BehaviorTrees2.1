@@ -162,6 +162,7 @@
     <ClCompile Include="Source\MultiAnimation.cpp" />
     <ClCompile Include="Source\MultiAnimationLib.cpp" />
     <ClCompile Include="Source\Nodes\ArrestTarget.cpp" />
+    <ClCompile Include="Source\Nodes\DecoratorAlwaysSucceed.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorInverter.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorPrintGibberish.cpp" />
     <ClCompile Include="Source\Nodes\DecoratorRunUntilFail.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Source\Nodes\SelectorRandom.cpp" />
     <ClCompile Include="Source\Nodes\SelectorRandomUntilFail.cpp" />
     <ClCompile Include="Source\Nodes\SelectorSequencer.cpp" />
+    <ClCompile Include="Source\Nodes\SelectorSequencerRegardlessOfFail.cpp" />
     <ClCompile Include="Source\Nodes\SelectRandomTarget.cpp" />
     <ClCompile Include="Source\Nodes\SelectRandomVictim.cpp" />
     <ClCompile Include="Source\statemch.cpp" />
@@ -231,6 +233,7 @@
     <ClInclude Include="Source\msgroute.h" />
     <ClInclude Include="Source\MultiAnimation.h" />
     <ClInclude Include="Source\Nodes\ArrestTarget.h" />
+    <ClInclude Include="Source\Nodes\DecoratorAlwaysSucceed.h" />
     <ClInclude Include="Source\Nodes\DecoratorInverter.h" />
     <ClInclude Include="Source\Nodes\DecoratorPrintGibberish.h" />
     <ClInclude Include="Source\Nodes\DecoratorRunUntilFail.h" />
@@ -250,6 +253,7 @@
     <ClInclude Include="Source\Nodes\SelectorRandom.h" />
     <ClInclude Include="Source\Nodes\SelectorRandomUntilFail.h" />
     <ClInclude Include="Source\Nodes\SelectorSequencer.h" />
+    <ClInclude Include="Source\Nodes\SelectorSequencerRegardlessOfFail.h" />
     <ClInclude Include="Source\Nodes\SelectRandomTarget.h" />
     <ClInclude Include="Source\Nodes\SelectRandomVictim.h" />
     <ClInclude Include="Source\resource.h" />

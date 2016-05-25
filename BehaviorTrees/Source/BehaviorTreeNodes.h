@@ -8,6 +8,7 @@
 #include "Nodes/SelectorRandomUntilFail.h"  //SH added selector
 #include "Nodes/SelectorRandom.h"
 #include "Nodes/SelectorSequencer.h"
+#include "Nodes/SelectorSequencerRegardlessOfFail.h"
 
 //Decorators
 #include "Nodes/DecoratorInverter.h"
@@ -17,7 +18,7 @@
 #include "Nodes/DecoratorRunXTimesOrUntilSucceed.h"  //SH added decorator
 //#include "Nodes/DecoratorRunForever.h"  //SH added decorator
 #include "Nodes/DecoratorPrintGibberish.h"
-
+#include "Nodes/DecoratorAlwaysSucceed.h"
 
 //General leaf nodes
 #include "Nodes/PathToTarget.h"

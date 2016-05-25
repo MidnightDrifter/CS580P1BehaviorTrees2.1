@@ -1,8 +1,13 @@
-Cop Sequencer
+Cop SequencerRegardlessOfFail
 	LoopXTimesOrUntilSuccess DecoratorRunXTimesOrUntilSucceed
 		PursueSuspect Leaf
 	ArrestTarget Leaf
 	ArrestCheck MessageReader
 		FalseArrest Leaf
-		CivilianIdle Leaf
-	CivilianIdle Leaf
+		IdleThenWander SequencerRegardlessOfFail
+			CivilianIdle Leaf
+			RandomPoint SelectorRandom
+				SelectRandomTarget Leaf
+				SelectFurthestTarget Leaf
+				SelectNearestTarget Leaf
+			PathToTarget Leaf

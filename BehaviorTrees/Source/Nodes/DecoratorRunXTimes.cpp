@@ -9,7 +9,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 	{
 		currentStatus = NS_Running;
 		(currX) = 0;
-		//m_currentChildIndex = 0;
+		m_currentChildIndex = 0;
 	}
 	else
 	{
