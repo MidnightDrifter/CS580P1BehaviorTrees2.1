@@ -6,6 +6,10 @@ Civilian Sequencer
 			SelectRandomTarget Leaf
 		PathToTarget Leaf
 		CivilianIdle Leaf
-	CheckMessages MessageReader
+	CheckMessages MessageReaderCivilian
 		FalseArrest Leaf
 		CivilianIdle Leaf
+	CheckMessagesXTimes DecoratorRunXTimesOrUntilSucceed
+		CheckMessages MessageReader
+			FalseArrest Leaf
+			FalseArrest Leaf

@@ -1,6 +1,7 @@
 Selectors
 	MessageReader "Message Reader--branch to DEFEAT or continue on as normal, IN THAT ORDER, for killer, AND branch to  FalseArrest or CivilianIdle IN THAT ORDER"
-	SelectorRandomUntilFail "Selector Random Until Fail"
+	MessageReaderCop "Message Reader Cop--branch to DEFEAT or continue on as normal, IN THAT ORDER, for killer, AND branch to  FalseArrest or CivilianIdle IN THAT ORDER"
+	MessageReaderCivilian "Message Reader Civilian --branch to DEFEAT or continue on as normal, IN THAT ORDER, for killer, AND branch to  FalseArrest or CivilianIdle IN THAT ORDER"
 	SelectorRandom "Selector Random"
 	Sequencer "Sequencer"
 	SequencerRegardlessOfFail "Sequencer that continues despite a failure"
@@ -8,9 +9,7 @@ Decorators
 	DecoratorInverter "Decorator Inverter"
 	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
 	DecoratorRunXTimes "Run a node X times"
-	DecoratorRunUntilFail "Continues running a node until the node fails"
 	DecoratorRunXTimesOrUntilSucceed "Decorator Run X Times Or Until Success"
-	DecoratorPrintGibberish "Have the civilians say gibberish?"
 	DecoratorAlwaysSucceed "Decorator that always succeeds"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
@@ -24,4 +23,4 @@ Leaves
 	Defeat "Killer loses, turn some drastic color"
 	FalseArrest "Hold cop in place for 2s--officer has arrested the wrong person"
 	SelectRandomVictim "Select a random civilian to try and kill"
-	CivilianIdle "Have a civilian not move for 0.5s"
+	CivilianIdle "Have a civilian not move and change color on message received"

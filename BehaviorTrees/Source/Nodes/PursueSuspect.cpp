@@ -18,8 +18,9 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 {
 	if (currentStatus == NS_OnEnter)
 	{
+		currentStatus = NS_Running;
 		suspectID = -1;
-		timeAcc = dt;
+		//timeAcc = dt;
 	}
 
 
@@ -32,12 +33,13 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 
 
   float randomScale = 0.5f * (rand() % 13);
-  if (timeAcc >= 3)  //Time is in ms?
-  {
-	  currentStatus = NS_Completed;
-  }
+  //if (timeAcc >= ((rand() % 3000)/1000.f))  //Time is in ms?
+  //{
+	 // currentStatus = NS_Completed;
+  //}
 
-  else if (me)
+  //else if (me)
+  if(me)
   {
    
       

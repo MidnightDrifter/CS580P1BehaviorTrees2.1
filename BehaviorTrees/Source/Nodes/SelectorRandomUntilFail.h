@@ -1,1 +1,0 @@
-DEFINE_SELECTOR_NODE(SelectorRandomUntilFail, "Selector Random Until Fail", void OnEdit();)

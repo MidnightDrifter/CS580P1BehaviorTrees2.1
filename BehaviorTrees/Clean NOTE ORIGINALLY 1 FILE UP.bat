@@ -1,8 +1,0 @@
-DEL /F /S /Q /AH "BehaviorTrees\*.suo"
-DEL /F /S /Q "BehaviorTrees\*.sdf"
-DEL /F /S /Q "BehaviorTrees\*.opensdf"
-DEL /F /S /Q "BehaviorTrees\*.sdf"
-RMDIR /S /Q "BehaviorTrees\Debug"
-RMDIR /S /Q "BehaviorTrees\Release"
-RMDIR /S /Q "BehaviorTrees\ipch"
-RMDIR /S /Q "BehaviorTrees\.vs"

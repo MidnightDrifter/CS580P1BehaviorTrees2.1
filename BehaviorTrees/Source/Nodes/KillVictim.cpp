@@ -34,7 +34,8 @@ LEAF_UPDATE_FUNC(KillVictim)
 			  i = g_database.GetSize();
 			  for (int j = 0; j < g_database.GetSize(); ++j)
 			  {
-				  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self, "PursueSuspect", MSG_Data(me->GetID()));
+				  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(j), self, "PursueSuspect", MSG_Data(me->GetID()));
+				  currentStatus = NS_Completed;
 				  // IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,)
 			  }
 		  }
@@ -49,7 +50,7 @@ LEAF_UPDATE_FUNC(KillVictim)
 	  }
   }
 	
-	  currentStatus = NS_Completed;
+	//  currentStatus = NS_Completed;
 	  
 	  
 	  

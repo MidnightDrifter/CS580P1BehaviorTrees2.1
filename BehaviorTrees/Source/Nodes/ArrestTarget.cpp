@@ -21,6 +21,7 @@ LEAF_UPDATE_FUNC(ArrestTarget)
 	if (currentStatus == NS_OnEnter)
 	{
 		killerID = static_cast<objectID>(-1);
+		currentStatus = NS_Running;
 	}
 
 
@@ -43,10 +44,10 @@ LEAF_UPDATE_FUNC(ArrestTarget)
 	{
 		for (int i = 0; i < g_database.GetSize(); ++i)
 		{
-			GameObject* g = g_database.Find(i);
+			GameObject* g = g_database.Find(static_cast<objectID>(i));
 			if (g)
 			{
-				if (isNearTarget(g->GetBody().GetPos(), me->GetBody().GetPos(), 0.01f))
+				if (isNearTarget(g->GetBody().GetPos(), me->GetBody().GetPos(), 0.1f))
 				{
 					if (killerID == g->GetID())
 					{
@@ -59,7 +60,7 @@ LEAF_UPDATE_FUNC(ArrestTarget)
 
 					else
 					{
-						IBTNode::SendMsg(FALSE_ARREST_MESSAGE, g->GetID(), self, "MessageReader", MSG_Data());
+						IBTNode::SendMsg(FALSE_ARREST_MESSAGE, g->GetID(), self, "MessageReaderCivilian", MSG_Data());
 						currentStatus = NS_Completed;
 						i = g_database.GetSize();
 					}

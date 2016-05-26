@@ -1,1 +1,1 @@
-DEFINE_SELECTOR_NODE(SequencerRegardlessOfFail, "Sequencer that continues despite a failure", void OnEdit();)
+DEFINE_SELECTOR_NODE(SequencerRegardlessOfFail, "Sequencer that continues despite a failure", int x; void OnEdit();)

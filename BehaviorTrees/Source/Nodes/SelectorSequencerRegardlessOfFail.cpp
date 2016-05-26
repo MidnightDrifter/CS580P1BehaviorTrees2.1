@@ -9,21 +9,24 @@ LOGIC_UPDATE_FUNC(SequencerRegardlessOfFail)
 	}
 	else
 	{
-		if (childStatus != NS_OnEnter && childStatus != NS_Running)
+		if (childStatus == NS_Completed || childStatus == NS_Failed)
 		{
 			m_currentChildIndex++;
 
 			if (m_currentChildIndex >= (int)m_children.size())
 			{
 				currentStatus = NS_Completed;
+				//m_currentChildIndex = 0;
 			}
 
+			else
+			{
+				currentStatus = NS_Running;
+			}
+
+
 		}
 
-		else
-		{
-			currentStatus = NS_Running;
-		}
 	
 	}
 }

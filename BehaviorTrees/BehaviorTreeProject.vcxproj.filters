@@ -150,9 +150,6 @@
     <ClCompile Include="Source\Nodes\SelectorSequencer.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\DecoratorRunUntilFail.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Nodes\DecoratorRunXTimes.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClCompile>
@@ -180,9 +177,6 @@
     <ClCompile Include="Source\Nodes\SelectNearestTarget.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\SelectorRandomUntilFail.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Nodes\CivilianIdle.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
@@ -192,13 +186,16 @@
     <ClCompile Include="Source\Nodes\ArrestTarget.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Nodes\DecoratorPrintGibberish.cpp">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Nodes\DecoratorAlwaysSucceed.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClCompile>
     <ClCompile Include="Source\Nodes\SelectorSequencerRegardlessOfFail.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectorMessageReaderCivilian.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\SelectorMessageReaderCop.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClCompile>
   </ItemGroup>
@@ -363,9 +360,6 @@
     <ClInclude Include="Source\Nodes\SelectorSequencer.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\DecoratorRunUntilFail.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Nodes\DecoratorRunXTimes.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
@@ -393,9 +387,6 @@
     <ClInclude Include="Source\Nodes\SelectNearestTarget.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\SelectorRandomUntilFail.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Nodes\CivilianIdle.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
@@ -405,13 +396,16 @@
     <ClInclude Include="Source\Nodes\ArrestTarget.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Nodes\DecoratorPrintGibberish.h">
-      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Nodes\DecoratorAlwaysSucceed.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
     <ClInclude Include="Source\Nodes\SelectorSequencerRegardlessOfFail.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectorMessageReaderCivilian.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\SelectorMessageReaderCop.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
     </ClInclude>
   </ItemGroup>
