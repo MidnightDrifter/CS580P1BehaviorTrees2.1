@@ -19,7 +19,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 	if (currentStatus == NS_OnEnter)
 	{
 		suspectID = -1;
-		timeAcc = dt;
+		timeAcc = 0.f;
 		timer = 0.0f;
 
 		currentStatus = NS_Running;

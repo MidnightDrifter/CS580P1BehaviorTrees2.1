@@ -20,7 +20,7 @@ LEAF_UPDATE_FUNC(FleeCop)
 	{
 		copID = -1;
 		timeAcc =0.f;
-		timer = 0;
+		timer = 0.f;
 		currentStatus = NS_Running;
 	}
 
