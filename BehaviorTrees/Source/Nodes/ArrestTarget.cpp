@@ -20,8 +20,8 @@ LEAF_UPDATE_FUNC(ArrestTarget)
 
 	if (currentStatus == NS_OnEnter)
 	{
-		killerID = static_cast<objectID>(-1);
-		currentStatus = NS_Running;
+		killerID = -1;
+		timeAcc = 0.f;
 	}
 
 
@@ -39,66 +39,76 @@ LEAF_UPDATE_FUNC(ArrestTarget)
 		//  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(i), self,"MessageReceiver", MSG_Data(me->GetID()));
 	 // }
 	 // currentStatus = NS_Completed;
-	GameObject* me = g_database.Find(self);
-	if (me)
-	{
-		for (int i = 0; i < g_database.GetSize(); ++i)
-		{
-			GameObject* g = g_database.Find(static_cast<objectID>(i));
-			if (g)
-			{
-				if (isNearTarget(g->GetBody().GetPos(), me->GetBody().GetPos(), 0.1f))
-				{
-					if (killerID == g->GetID())
-					{
-						IBTNode::SendMsg(ARREST_SUCCESSFUL_MESSAGE, g->GetID(), self, "MessageReader", MSG_Data());
-						currentStatus = NS_Completed;
 
-						i = g_database.GetSize();
+	if (timeAcc > 1.25f)
+	{
+		timeAcc = 0.f;
+		GameObject* me = g_database.Find(self);
+		if (me)
+		{
+			for (int i = 0; i < g_database.GetSize(); ++i)
+			{
+				GameObject* g = g_database.Find(i);
+				if (g)
+				{
+					if (isNearTarget(g->GetBody().GetPos(), me->GetBody().GetPos(), 0.01f))
+					{
+						if (static_cast<objectID>(killerID) == g->GetID())
+						{
+							IBTNode::SendMsg(ARREST_SUCCESSFUL_MESSAGE, g->GetID(), self, "MessageReader", MSG_Data());
+							currentStatus = NS_Completed;
+
+							i = g_database.GetSize();
+
+						}
+
+						else
+						{
+							IBTNode::SendMsg(FALSE_ARREST_MESSAGE, g->GetID(), self, "MessageReader", MSG_Data());
+							currentStatus = NS_Completed;
+							i = g_database.GetSize();
+						}
 
 					}
-
 					else
 					{
-						IBTNode::SendMsg(FALSE_ARREST_MESSAGE, g->GetID(), self, "MessageReaderCivilian", MSG_Data());
-						currentStatus = NS_Completed;
-						i = g_database.GetSize();
+						currentStatus = NS_Failed;
 					}
-
 				}
 				else
 				{
 					currentStatus = NS_Failed;
 				}
 			}
-			else
-			{
-				currentStatus = NS_Failed;
-			}
+
+
+			//  if (currentStatus == NS_OnEnter)
+			//  {
+			//    if (jog)me->GetMovement().SetJogSpeed();
+			//    else me->GetMovement().SetWalkSpeed();
+			//    me->GetMovement().SetTarget(me->GetTargetPOS());
+			//    currentStatus = NS_Running;
+			//  }
+			//  else
+			//  {
+			//   /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+			//    {
+			//      currentStatus = NS_Completed;
+			//      me->GetMovement().SetIdleSpeed();
+			//    }*/
+			//  }
+			//}
+			//else
+			//{
+			//  currentStatus = NS_Failed;
+			//}
+
 		}
-
-
-		//  if (currentStatus == NS_OnEnter)
-		//  {
-		//    if (jog)me->GetMovement().SetJogSpeed();
-		//    else me->GetMovement().SetWalkSpeed();
-		//    me->GetMovement().SetTarget(me->GetTargetPOS());
-		//    currentStatus = NS_Running;
-		//  }
-		//  else
-		//  {
-		//   /* if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-		//    {
-		//      currentStatus = NS_Completed;
-		//      me->GetMovement().SetIdleSpeed();
-		//    }*/
-		//  }
-		//}
-		//else
-		//{
-		//  currentStatus = NS_Failed;
-		//}
-
+	}
+	else
+	{
+		timeAcc += dt;
+		currentStatus = NS_Running;
 	}
 }
 END_LEAF_UPDATE_FUNC

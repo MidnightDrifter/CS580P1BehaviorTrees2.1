@@ -21,28 +21,27 @@
 //static bool jog = false;
 LEAF_UPDATE_FUNC(CivilianIdle)
 {
-  GameObject *me = g_database.Find(self);
-  if (me)
+ // GameObject *me = g_database.Find(self);
+ // if (me)
+ // {
+    if (currentStatus == NS_OnEnter)
+    {
+		timeAcc = 0.f;
+      currentStatus = NS_Running;
+    }
+
+	
+
+    if(timeAcc >= 2.f)
+    {
+		currentStatus = NS_Completed;
+    }
+ // }
+  else
   {
-	  if (currentStatus == NS_OnEnter)
-	  {
-		  timeAcc = dt;
-		  currentStatus = NS_Running;
-	  }
-
-
-
-	  if (timeAcc >= ((rand() % 2500) / 1000.f))
-	  {
-		  currentStatus = NS_Completed;
-	  }
-
-	  else
-	  {
-		  //timeAcc = dt;
-		  // me->GetMovement().SetIdleSpeed();
-		  currentStatus = NS_Running;
-	  }
+	  //timeAcc = dt;
+	  timeAcc += dt;
+    currentStatus = NS_Running;
   }
 }
 END_LEAF_UPDATE_FUNC
@@ -59,21 +58,6 @@ NODE_MSG_RECEIVED(CivilianIdle)
 	if (name == AGENT_TARGETED_PING)
 	{
 		IBTNode::SendMsg(AGENT_TARGETED_RESPONSE, data.GetObjectID(), self, "SelectRandomVictim", MSG_Data(0));
-		colorSwap = !colorSwap;
-		GameObject *me = g_database.Find(self);
-	
-		if (me) {
-			if (colorSwap)
-			{
-				me->GetTiny().SetDiffuse(0.2f, 0.8f, 0.2f);
-			}
-
-			else
-			{
-				me->GetTiny().SetDiffuse(0.8f, 0.2f, 0.8f);
-			}
-		}
-		
 	}
 
 	//else if (name == ARREST_TARGET)

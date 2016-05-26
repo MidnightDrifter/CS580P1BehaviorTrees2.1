@@ -18,59 +18,72 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 {
 	if (currentStatus == NS_OnEnter)
 	{
-		currentStatus = NS_Running;
 		suspectID = -1;
-		//timeAcc = dt;
+		timeAcc = dt;
+		timer = 0.0f;
+
+		currentStatus = NS_Running;
 	}
 
+	if (timer > 1.0f)
+	{
+		//timer = 0.0f;
 
-  GameObject *me = g_database.Find(self);
-  GameObject *s = NULL;
-  if (suspectID != -1)
-  {
-	  s = g_database.Find(suspectID);
-  }
+		GameObject *me = g_database.Find(self);
+		GameObject *s = NULL;
+		if (suspectID != -1)
+		{
+			s = g_database.Find(static_cast<objectID>(suspectID));
+		}
+
+		float randomScale = 0.5f * (rand() % 13);
+		if (timeAcc >= 2.75f)  //Time is in ms?
+		{
+			timeAcc = 0.f;
+			timer = 0.f;
+			currentStatus = NS_Completed;
+			
+		}
+
+		else if (me)
+		{
+			timeAcc += dt;
+
+			me->GetMovement().SetJogSpeed();
+			if (suspectID != -1)
+			{
+				me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
+				//timeAcc = dt;
+				currentStatus = NS_Running;
+			}
+
+			else
+			{
+				currentStatus = NS_Failed;
+			}
 
 
-  float randomScale = 0.5f * (rand() % 13);
-  //if (timeAcc >= ((rand() % 3000)/1000.f))  //Time is in ms?
-  //{
-	 // currentStatus = NS_Completed;
-  //}
 
-  //else if (me)
-  if(me)
-  {
-   
-      
-       me->GetMovement().SetJogSpeed();
-	   if (suspectID != -1)
-	   {
-		   me->GetMovement().SetTarget(me->GetTargetPOS() + randomScale * (s->GetBody().GetDir()));
-		   //timeAcc = dt;
-		   currentStatus = NS_Running;
-	   }
+			/*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+			{
+			currentStatus = NS_Completed;
+			me->GetMovement().SetIdleSpeed();
+			}*/
 
-	   else
-	   {
-		   currentStatus = NS_Failed;
-	   }
-      
-    
-   
-      /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-      {
-        currentStatus = NS_Completed;
-        me->GetMovement().SetIdleSpeed();
-      }*/
-    
-  }
+		}
 
- 
-  else
-  {
-    currentStatus = NS_Failed;
-  }
+
+		else
+		{
+			currentStatus = NS_Failed;
+		}
+	}
+	else
+	{
+		timer += dt;
+		currentStatus = NS_Running;
+	}
+
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(PursueSuspect)

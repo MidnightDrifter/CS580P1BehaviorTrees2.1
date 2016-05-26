@@ -19,6 +19,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 
 		else if (childStatus == NS_Failed)
 		{
+			printf("%d %d\n", currX, x);
 			//currentStatus = NS_Failed;
 			if ((currX) < x)
 			{
@@ -30,14 +31,12 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 
 			else
 			{
-				currX = 0;
 				currentStatus = NS_Completed;
 			}
 
 		}
-		else if(childStatus == NS_Completed)
+		else if(childStatus != NS_OnEnter)
 		{
-			currX = 0;
 			currentStatus = NS_Completed;
 
 

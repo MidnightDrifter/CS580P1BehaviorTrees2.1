@@ -13,75 +13,99 @@
 //    (abs(pos.y - target.y) < nearDist) &&
 //    (abs(pos.z - target.z) < nearDist);
 //}
-static bool jog = false;
+//static bool jog = false;
 LEAF_UPDATE_FUNC(FleeCop)
 {
 	if (currentStatus == NS_OnEnter)
 	{
 		copID = -1;
-		timeAcc = dt;
+		timeAcc =0.f;
+		timer = 0;
+		currentStatus = NS_Running;
 	}
 
-  GameObject *me = g_database.Find(self);
-  GameObject *c = NULL;
 
-  
+	if(timeAcc > 1.0f)
+	{
+		//timeAcc = 0.f;
 
-  float randomScale = 0.5 * (rand() % 13);
-
-
-  if (copID != -1)
-  {
-	  c = g_database.Find(copID);
-  }
-
-  if (timeAcc >= 3.f) //Time in ms?
-  {
-	  currentStatus = NS_Completed;
-	  IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, copID, self, "ArrestTarget", MSG_Data(self));
-  }
-  else if (me)
-  {
-
-	  me->GetMovement().SetJogSpeed();
-	  if (copID != -1)
-	  {
-		  me->GetMovement().SetTarget(me->GetTargetPOS() - randomScale * (c->GetBody().GetDir()));
-		  //timeAcc = dt;
-		  currentStatus = NS_Running;
-	  }
-
-	  else
-	  {
-		  currentStatus = NS_Failed;
-	  }
+		if (timer < 3.0f)
+		{
+			GameObject *me = g_database.Find(self);
+			GameObject *c = NULL;
 
 
-  //  if (currentStatus == NS_OnEnter)
-  //  {
-  //    if (jog)me->GetMovement().SetJogSpeed();
-  //    else me->GetMovement().SetWalkSpeed();
-  //    me->GetMovement().SetTarget(me->GetTargetPOS());
-  //    currentStatus = NS_Running;
-  //  }
-  //  else
-  //  {
-  //    /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
-  //    {
-  //      currentStatus = NS_Completed;
-  //      me->GetMovement().SetIdleSpeed();
-  //    }*/
-  //  }
-  //}
-  //else
-  //{
-  //  currentStatus = NS_Failed;
-  }
 
-  else
-  {
-	  currentStatus = NS_Failed;
-  }
+			float randomScale = 0.5 * (rand() % 13);
+
+
+			if (copID != -1)
+			{
+				c = g_database.Find(static_cast<objectID>(copID));
+			}
+
+			if (timer >= 3.f) //Time in ms?
+			{
+				
+				IBTNode::SendMsg(VICTIM_KILLED_BROADCAST, static_cast<objectID>(copID), self, "ArrestTarget", MSG_Data(self));
+				timer = 0.f;
+				timeAcc = 0.f;
+				currentStatus = NS_Completed;
+			}
+			else if (me)
+			{
+				timer += dt;
+				me->GetMovement().SetJogSpeed();
+				if (copID != -1)
+				{
+					me->GetMovement().SetTarget(me->GetTargetPOS() - randomScale * (c->GetBody().GetDir()));
+					//timeAcc = dt;
+					currentStatus = NS_Running;
+				}
+
+				else
+				{
+					currentStatus = NS_Failed;
+				}
+
+
+				//  if (currentStatus == NS_OnEnter)
+				//  {
+				//    if (jog)me->GetMovement().SetJogSpeed();
+				//    else me->GetMovement().SetWalkSpeed();
+				//    me->GetMovement().SetTarget(me->GetTargetPOS());
+				//    currentStatus = NS_Running;
+				//  }
+				//  else
+				//  {
+				//    /*if (isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+				//    {
+				//      currentStatus = NS_Completed;
+				//      me->GetMovement().SetIdleSpeed();
+				//    }*/
+				//  }
+				//}
+				//else
+				//{
+				//  currentStatus = NS_Failed;
+			}
+
+			else
+			{
+				currentStatus = NS_Failed;
+			}
+		}
+		else
+		{
+			timer += dt;
+			currentStatus = NS_Running;
+		}
+	}
+	else {
+		timeAcc += dt;
+		currentStatus = NS_Running;
+		
+	}
 
 }
 END_LEAF_UPDATE_FUNC
