@@ -1,1 +1,1 @@
-DEFINE_LEAF_NODE(ArrestTarget, "Arrest an agent", objectID killerID; void OnEdit(); )
+DEFINE_LEAF_NODE(ArrestTarget, "Arrest an agent", int killerID; float timeAcc; void OnEdit(); )

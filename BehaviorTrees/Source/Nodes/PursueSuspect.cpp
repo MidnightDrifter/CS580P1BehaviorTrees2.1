@@ -25,26 +25,29 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 		currentStatus = NS_Running;
 	}
 
-	if (timer > 0.5f)
+	if (timer > 1.0f)
 	{
-		timer = 0.0f;
+		//timer = 0.0f;
 
 		GameObject *me = g_database.Find(self);
 		GameObject *s = NULL;
 		if (suspectID != -1)
 		{
-			s = g_database.Find(suspectID);
+			s = g_database.Find(static_cast<objectID>(suspectID));
 		}
 
 		float randomScale = 0.5f * (rand() % 13);
-		if (timeAcc >= 3)  //Time is in ms?
+		if (timeAcc >= 2.75f)  //Time is in ms?
 		{
+			timeAcc = 0.f;
+			timer = 0.f;
 			currentStatus = NS_Completed;
+			
 		}
 
 		else if (me)
 		{
-
+			timeAcc += dt;
 
 			me->GetMovement().SetJogSpeed();
 			if (suspectID != -1)
@@ -78,6 +81,7 @@ LEAF_UPDATE_FUNC(PursueSuspect)
 	else
 	{
 		timer += dt;
+		currentStatus = NS_Running;
 	}
 
 }

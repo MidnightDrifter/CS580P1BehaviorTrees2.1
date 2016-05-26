@@ -26,13 +26,13 @@ LEAF_UPDATE_FUNC(CivilianIdle)
  // {
     if (currentStatus == NS_OnEnter)
     {
-		timeAcc = dt;
+		timeAcc = 0.f;
       currentStatus = NS_Running;
     }
 
 	
 
-    if(timeAcc >= ((rand() % 2500)/1000.f))
+    if(timeAcc >= 2.f)
     {
 		currentStatus = NS_Completed;
     }
@@ -40,6 +40,7 @@ LEAF_UPDATE_FUNC(CivilianIdle)
   else
   {
 	  //timeAcc = dt;
+	  timeAcc += dt;
     currentStatus = NS_Running;
   }
 }

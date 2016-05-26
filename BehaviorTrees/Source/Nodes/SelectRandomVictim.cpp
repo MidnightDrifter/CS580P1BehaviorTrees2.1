@@ -13,33 +13,44 @@
 //    (abs(pos.y - target.y) < nearDist) &&
 //    (abs(pos.z - target.z) < nearDist);
 //}
-static bool jog = false;
+//static bool jog = false;
 LEAF_UPDATE_FUNC(SelectRandomVictim)
 {
 	if (currentStatus == NS_OnEnter)
 	{
 		victim = NULL;
+		timeAcc = 0.f;
+	}
+
+	if (timeAcc >= 3.5f)
+	{
+		timeAcc = 0.f;
+		GameObject *me = g_database.Find(self);
+
+		GameObject *t = g_database.Find(static_cast<objectID>(rand() % g_database.GetSize() - 1));
+		if (me && t)
+		{
+			IBTNode::SendMsg(AGENT_TARGETED_PING, (t->GetID()), self, "CivilianIdle", MSG_Data(self));
+			//In root nodes put:
+			//  if cop:   if(node msg received == AGENT_TARGETED_PING), return data = -1
+			//  if civilian or killer:  if(node msg received == AGENT_TARGETED_PING), return data = 1
+
+			currentStatus = NS_Running;
+
+		}
+
+		else
+		{
+			currentStatus = NS_Failed;
+		}
 	}
 
 
-  GameObject *me = g_database.Find(self);
-  
-  GameObject *t = g_database.Find(static_cast<objectID>(rand() % g_database.GetSize()-1));
-  if (me && t)
-  {
-	  IBTNode::SendMsg(AGENT_TARGETED_PING, (t->GetID()), self, "CivilianIdle", MSG_Data(self));
-	  //In root nodes put:
-	  //  if cop:   if(node msg received == AGENT_TARGETED_PING), return data = -1
-	  //  if civilian or killer:  if(node msg received == AGENT_TARGETED_PING), return data = 1
-
-	  currentStatus = NS_Running;
-
-  }
-
-  else
-  {
-	  currentStatus = NS_Failed;
-  }
+	else
+	{
+		timeAcc += dt;
+		currentStatus = NS_Running;
+	}
 }
 END_LEAF_UPDATE_FUNC
 ON_EDIT_FUNC(SelectRandomVictim)

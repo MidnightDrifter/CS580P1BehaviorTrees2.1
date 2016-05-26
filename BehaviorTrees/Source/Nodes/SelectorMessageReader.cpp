@@ -8,15 +8,25 @@ LOGIC_UPDATE_FUNC(MessageReader)
 		childIndex = 1;
 		currentStatus = NS_Running;
 		m_currentChildIndex = childIndex;
+		timeAcc = 0.f;
 	}
 
-
-
-
-	if (childStatus != NS_OnEnter || childStatus != NS_Running)
+	if (timeAcc > 4.5f)
 	{
-		currentStatus = childStatus;
+		currentStatus =NS_Completed;
+		timeAcc = 0.f;
 	}
+
+	else
+	{
+		timeAcc += dt;
+		currentStatus = NS_Running;
+	}
+
+	//if (childStatus != NS_OnEnter || childStatus != NS_Running)
+	//{
+	//	currentStatus = childStatus;
+	//}
 }
 END_LOGIC_UPDATE_FUNC
 
@@ -30,7 +40,7 @@ NODE_MSG_RECEIVED(MessageReader)
 {
 	if(name == ARREST_SUCCESSFUL_MESSAGE  || FALSE_ARREST_MESSAGE)
 	{
-		childIndex = 0;
+		m_currentChildIndex = 0;
 	}
 
 }

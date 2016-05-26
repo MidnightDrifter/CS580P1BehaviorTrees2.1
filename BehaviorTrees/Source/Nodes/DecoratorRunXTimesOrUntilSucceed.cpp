@@ -35,7 +35,7 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimesOrUntilSucceed)
 			}
 
 		}
-		else
+		else if(childStatus != NS_OnEnter)
 		{
 			currentStatus = NS_Completed;
 
